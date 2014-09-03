@@ -167,7 +167,8 @@ static char* htmlReadableFileEncoding(NSStringEncoding stringEncoding)
 	   NSUTF32LittleEndianStringEncoding == stringEncoding) {
 		return "utf-32";
 	}
-	if (NSShiftJISStringEncoding == stringEncoding) {
+	if (NSShiftJISStringEncoding == stringEncoding ||
+	   2147551745 == (unsigned long)stringEncoding) {
 		return "shift_jis";
 	}
 	
@@ -199,7 +200,8 @@ static char* humanReadableFileEncoding(NSStringEncoding stringEncoding)
 	   NSUTF32LittleEndianStringEncoding == stringEncoding) {
 		return "UTF-32";
 	}
-	if (NSShiftJISStringEncoding == stringEncoding) {
+	if (NSShiftJISStringEncoding == stringEncoding ||
+	   2147551745 == (unsigned long)stringEncoding) {
 		return "Shift_JIS";
 	}
 	
