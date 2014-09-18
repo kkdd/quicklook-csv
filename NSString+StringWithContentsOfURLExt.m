@@ -11,7 +11,6 @@
 NSStringEncoding getTryingTextEncoding();
 CFStringEncoding CFStringEncodingFromEncodingName(NSString *enc_name);
 
-
 @implementation NSString (StringWithContentsOfURLExt)
 + (NSString*)StringWithContentsOfURLExt:(NSURL *)url usedEncoding:(NSStringEncoding *)enc error:(NSError **)error
 {
