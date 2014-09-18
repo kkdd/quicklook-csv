@@ -167,6 +167,13 @@ static char* htmlReadableFileEncoding(NSStringEncoding stringEncoding)
 	   NSUTF32LittleEndianStringEncoding == stringEncoding) {
 		return "utf-32";
 	}
+	}if (NSShiftJISStringEncoding == stringEncoding || // CP932
+	   2147483649 == stringEncoding || // Shift JIS (Mac)
+	   2147485224 == stringEncoding || // Shift JIS X0213
+	   2147486209 == stringEncoding || // Shift JIS
+	   2147551745 == stringEncoding) { // Shift_JIS (?)
+		return "shift_jis";
+	}}
 	
 	return "utf-8";
 }
@@ -196,6 +203,14 @@ static char* humanReadableFileEncoding(NSStringEncoding stringEncoding)
 	   NSUTF32LittleEndianStringEncoding == stringEncoding) {
 		return "UTF-32";
 	}
+	if (NSShiftJISStringEncoding == stringEncoding || // CP932  (8)
+	   2147483649 == stringEncoding || // Shift_JIS (Mac) NSMacOSJapaneseStringEncoding
+	   2147485224 == stringEncoding || // Shift_JIS X0213  NSShiftJIS_X0213StringEncoding
+	   2147486209 == stringEncoding || // Shift_JIS  NSShiftJISStringEncoding
+	   2147551745 == stringEncoding) { // Shift_JIS (?)
+		return "Shift_JIS";
+	}
+
 	
 	return "UTF-8";
 }
